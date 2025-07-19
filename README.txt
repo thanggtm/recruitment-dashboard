@@ -1,4 +1,4 @@
-This CD is submitted to fulfill requirements for the degree of Bachelor Engineering in study program Computer Science.
+This project fulfill requirements for the degree of Bachelor Engineering in study program Computer Science.
 ==================================================================================================================================================================================
 The thesis work in this drive belongs to 
 Name: Tran Minh Thang
