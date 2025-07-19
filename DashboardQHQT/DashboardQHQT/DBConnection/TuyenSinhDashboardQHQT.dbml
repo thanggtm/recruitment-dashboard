@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TuyenSinhDashboardQHQT" Class="TuyenSinhDashboardQHQTDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=TuyenSinhDashboardQHQT;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TuyenSinhDashboardQHQTConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.sp_dim_coso_select_all" Method="sp_dim_coso_select_all">
+    <ElementType Name="sp_dim_coso_select_allResult">
+      <Column Name="CoSoKey" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TenCoSo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaCoSo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_tonghop_nguontiepcan" Method="sp_tonghop_nguontiepcan">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaKhuVuc" Parameter="maKhuVuc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaNguon" Parameter="maNguon" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_tonghop_nguontiepcanResult">
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_hinhthuctuyensinh_select_all" Method="sp_dim_hinhthuctuyensinh_select_all">
+    <ElementType Name="sp_dim_hinhthuctuyensinh_select_allResult">
+      <Column Name="HinhThucKey" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TenHinhThuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MaHinhThuc" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_khuvuc_select_all" Method="sp_dim_khuvuc_select_all">
+    <ElementType Name="sp_dim_khuvuc_select_allResult">
+      <Column Name="KhuVucKey" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TenKhuVuc" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="MaKhuVuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_khuvuc_select_codangky" Method="sp_dim_khuvuc_select_codangky">
+    <Parameter Name="MaHinhThucTuyenSinh" Parameter="maHinhThucTuyenSinh" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_dim_khuvuc_select_codangkyResult">
+      <Column Name="MaKhuVuc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenKhuVuc" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_namtuyensinh_select_all" Method="sp_dim_namtuyensinh_select_all">
+    <ElementType Name="sp_dim_namtuyensinh_select_allResult">
+      <Column Name="NamKey" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Nam" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenNam" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_nganh_select_all" Method="sp_dim_nganh_select_all">
+    <ElementType Name="sp_dim_nganh_select_allResult">
+      <Column Name="NganhKey" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MaNganh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TenNganh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_dim_nguontiepcan_select_all" Method="sp_dim_nguontiepcan_select_all">
+    <ElementType Name="sp_dim_nguontiepcan_select_allResult">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TenNguon" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="MaNguon" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_fact_dangky_filter" Method="sp_fact_dangky_filter">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaHinhThuc" Parameter="maHinhThuc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaCoSo" Parameter="maCoSo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaNganh" Parameter="maNganh" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaKhuVuc" Parameter="maKhuVuc" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_fact_dangky_filterResult">
+      <Column Name="TongSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_fact_dangky_tongtheonam" Method="sp_fact_dangky_tongtheonam">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_fact_dangky_tongtheonamResult">
+      <Column Name="TongSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_fact_nhaphoc_filter" Method="sp_fact_nhaphoc_filter">
+    <Parameter Name="Nam" Parameter="nam" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MaHinhThuc" Parameter="maHinhThuc" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaCoSo" Parameter="maCoSo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaNganh" Parameter="maNganh" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="MaKhuVuc" Parameter="maKhuVuc" Type="System.String" DbType="NVarChar(50)" />
+    <ElementType Name="sp_fact_nhaphoc_filterResult">
+      <Column Name="TongSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_fact_nhaphoc_tongtheonam" Method="sp_fact_nhaphoc_tongtheonam">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="sp_fact_nhaphoc_tongtheonamResult">
+      <Column Name="TongSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_googleaccount_exit" Method="sp_googleaccount_exit" IsComposable="true">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.sp_insert_login_activity" Method="sp_insert_login_activity">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DateTimeLogin" Parameter="dateTimeLogin" Type="System.DateTime" DbType="DateTime" />
+  </Function>
+</Database>

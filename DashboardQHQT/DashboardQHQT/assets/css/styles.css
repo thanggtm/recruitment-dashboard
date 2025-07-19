@@ -1,0 +1,372 @@
+.label-danger {
+    top: 0;
+    right: 15px;
+    position: absolute;
+    font-size: 20pt;
+    border-radius: inherit;
+}
+
+.card {
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+    .card .header h4.title {
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #2196f3;
+    }
+
+    .card .content h6 {
+        color: #2196f3;
+    }
+
+    .card .stats {
+        padding-top: 20px;
+    }
+
+    .card .card-category-chart {
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid rgba(20, 53, 80, 0.14);
+    }
+
+        .card .card-category-chart .header h5 {
+            padding: 0 5px;
+        }
+
+    .card .function-text {
+        padding: 40px 15px;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+        .card .function-text p {
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+    .card .active {
+        background: #1DC7EA;
+    }
+
+    .card .disabled {
+        background: #E0E0E0;
+    }
+
+    .card .card-header {
+        box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+        padding: 35px;
+        font-size: 20px;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .card .card-footer {
+        margin: 40px 20px 10px;
+        padding: 10px 0;
+        border-top: 1px solid #eeeeee;
+    }
+
+        .card .card-footer p {
+            color: #424242;
+        }
+
+    .card .card-footer-chart {
+        margin: 0 20px 10px;
+        padding: 0 0;
+    }
+
+        .card .card-footer-chart .card-footer-content {
+            vertical-align: middle;
+        }
+
+            .card .card-footer-chart .card-footer-content p {
+                vertical-align: middle;
+            }
+
+            .card .card-footer-chart .card-footer-content:before {
+                content: "";
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+            }
+
+            .card .card-footer-chart .card-footer-content .card-footer-information p {
+                text-align: center;
+            }
+
+                .card .card-footer-chart .card-footer-content .card-footer-information p: last-child {
+                    font-size: 26px;
+                    font-weight: bold;
+                }
+
+        .card .card-footer-chart .zone-chart {
+            float: left;
+        }
+
+    .card .card-content {
+        text-align: center;
+        padding-top: 0;
+        padding-left: 15px;
+        padding-bottom: 20px;
+    }
+
+        .card .card-content h3 {
+            font-weight: bold;
+            color: red;
+            padding-top: 10px;
+        }
+
+        .card .card-content p.title-chart {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+.card-statistics {
+    text-align: center;
+}
+
+    .card-statistics:hover {
+        color: red;
+        cursor: pointer;
+    }
+
+    .card-statistics .card-title {
+        margin-top: 30px;
+    }
+
+    .card-statistics .content {
+        padding: 15px !important;
+    }
+
+    .card-statistics .icon {
+        padding: 10px 0 0px;
+        color: #999999;
+    }
+
+        .card-statistics .icon i {
+            font-size: 55px;
+            border: 1px solid #E5E5E5;
+            border-radius: 50%;
+            width: 130px;
+            line-height: 130px;
+            height: 130px;
+            color: white;
+        }
+
+        .card-statistics .icon.icon-primary {
+            color: #9c27b0;
+        }
+
+        .card-statistics .icon.icon-info {
+            color: #00bcd4;
+        }
+
+        .card-statistics .icon.icon-success {
+            color: #4caf50;
+        }
+
+        .card-statistics .icon.icon-warning {
+            color: #ff9800;
+        }
+
+        .card-statistics .icon.icon-danger {
+            color: #f44336;
+        }
+
+        .card-statistics .icon.icon-rose {
+            color: #e91e63;
+        }
+
+    .card-statistics h1 small {
+        font-size: 18px;
+    }
+
+        .card-statistics h1 small:first-child {
+            position: relative;
+            top: -17px;
+            font-size: 26px;
+        }
+
+    .card-statistics ul {
+        list-style: none;
+        padding: 0;
+        max-width: 240px;
+        margin: 10px auto;
+    }
+
+        .card-statistics ul li {
+            color: #999999;
+            text-align: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(153, 153, 153, 0.3);
+        }
+
+            .card-statistics ul li: last-child {
+                border: 0;
+            }
+
+            .card-statistics ul li b {
+                color: #3C4858;
+            }
+
+            .card-statistics ul li i {
+                top: 6px;
+                position: relative;
+            }
+
+    .card-statistics.card-background ul li, .card-statistics [class*="content-"] ul li {
+        color: #FFFFFF;
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+        .card-statistics.card-background ul li b, .card-statistics [class*="content-"] ul li b {
+            color: #FFFFFF;
+        }
+
+    .card-statistics.card-background [class*="text-"], .card-statistics [class*="content-"] [class*="text-"] {
+        color: #FFFFFF;
+    }
+
+    .card-statistics.card-background:after {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+.choose-chart .choose-chart-element {
+    list-style: none;
+    font-size: 16px;
+    padding-left: 0;
+}
+
+    .choose-chart .choose-chart-element li {
+        padding: 5px 0;
+    }
+
+        .choose-chart .choose-chart-element li a {
+            cursor: pointer;
+        }
+
+            .choose-chart .choose-chart-element li a:hover {
+                text-decoration: none;
+                color: #2196f3;
+            }
+
+            .choose-chart .choose-chart-element li a i {
+                margin-left: 10px;
+            }
+
+.filter-nguyenvong-dangky, .filter-dashboard {
+    padding: 10px 0;
+}
+
+    .filter-nguyenvong-dangky label, .filter-dashboard label {
+        font-weight: bold;
+    }
+
+.select2 .selection .select2-selection {
+    min-height: 39px;
+    border-radius: 5px;
+    outline: none;
+    border-color: #E3E3E3;
+    width: 100%;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    margin-top: 3px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 36px;
+}
+
+.navbar .navbar-minimize {
+    float: left;
+    margin: 3px 15px;
+}
+
+.navbar .btn {
+    margin: 10px 3px;
+    font-size: 14px;
+}
+
+.navbar .btn-round {
+    border-width: 1px;
+    border-radius: 30px !important;
+    width: 40px;
+}
+
+.navbar .btn-warning {
+    color: #FFFFFF;
+    background-color: #FFA534;
+    opacity: 1;
+}
+
+.navbar .btn-icon {
+    color: #FFFFFF;
+    background-color: #FFA534;
+    opacity: 1;
+}
+
+.demo-section {
+    margin: 0 auto 4.5em;
+    padding: 3em;
+    border: 1px solid rgba(20, 53, 80, 0.14);
+}
+
+.sb-login {
+    border-color: #fb404b;
+    outline: none;
+    font-weight: 400;
+    color: #fb404b;
+    padding: 3px 10px;
+}
+
+    .sb-login i {
+        text-transform: uppercase;
+    }
+
+.sb-logout {
+    background-color: transparent;
+    border: none;
+    color: #777;
+    outline: none;
+    font-weight: 400;
+    margin: 7px 0px;
+    font-size: 20px;
+}
+
+    .sb-logout:hover {
+        color: #11bfe3;
+    }
+
+@media (max-width: 500px) {
+    .sb-login {
+        border-color: #fff;
+        outline: none;
+        font-weight: 400;
+        color: #fff;
+        padding: 3px 10px;
+    }
+
+        .sb-login i {
+            text-transform: uppercase;
+        }
+
+        .sb-login:hover {
+            border-color: #fff;
+            outline: none;
+            font-weight: 400;
+            color: #fff;
+            padding: 3px 10px;
+        }
+}
+
+.phieu-khaosat .card-stats .card-header {
+    padding: 50px;
+}
+
+.phieu-khaosat .card-stats .card-content {
+    padding-top: 30px;
+    min-height: 150px;
+}

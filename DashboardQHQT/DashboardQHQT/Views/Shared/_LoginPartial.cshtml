@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.Owin.Security
+
+<div class="collapse navbar-collapse">
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @class = "navbar-form navbar-right" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="/Content/HDSD_Dashboard.pdf" class="sb-logout" target="_blank">Tải hướng dẫn sử dụng</a>
+            <button type="button" class="sb-logout">@User.Identity.GetUserName()</button>
+            <button type="submit" class="sb-logout">Đăng xuất</button>
+        }
+    }
+    else
+    {
+
+        @*var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
+            if (loginProviders.Count() != 0)
+            {
+                string returnUrl = "";
+                using (Html.BeginForm("ExternalLogin", "Account", FormMethod.Post, new { ReturnUrl = returnUrl, @class = "navbar-form navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    foreach (AuthenticationDescription p in loginProviders)
+                    {
+                        <button type="submit" class="btn btn-danger sb-login" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType"> Đăng nhập Gmail <i class="fa fa-google"></i></button>
+                    }
+
+                }
+
+            }*@
+    }
+</div>

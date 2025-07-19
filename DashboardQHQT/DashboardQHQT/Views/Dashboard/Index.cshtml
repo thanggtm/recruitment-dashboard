@@ -1,0 +1,282 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Đăng ký + nhập học 2015 - 2017-->
+<div class="container-fluid">
+    <div class="row" style="margin-top: 15px;">
+        @foreach (var soLuong in ViewBag.SoLuongDKNH)
+        {
+            <div class="number-candidate">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-stats">
+                        <div class="card-header" data-background-color="@soLuong.Color">
+                            @soLuong.Nam
+                        </div>
+                        <div class="card-content">
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats text-center">
+                                <div class="numberStudent">
+                                    <p>Số lượng Thí sinh Đăng ký &nbsp;</p>
+                                    <p style="font-weight: bold;font-size: 14pt; color: #e53935">@soLuong.SoLuongDangKy @soLuong.GiaoDongDangKy</p>
+                                </div>
+                                <div class="numberStudent">
+                                    <p>Số lượng Thí sinh Nhập học &nbsp;</p>
+                                    <p style="font-weight: bold;font-size: 14pt; color: #e53935">@soLuong.SoLuongNhapHoc @soLuong.GiaoDongNhapHoc</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">THỐNG KÊ TUYỂN SINH</h4>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6>Biểu đồ thống kê</h6>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="filter-dashboard">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <!--Filter option-->
+                                                    <label>Năm</label>
+                                                    <select class="form-control" id="select2YearTK" onchange="Select2YearTKOnChange()" multiple>
+                                                        @foreach (var year in ViewBag.ListNamTuyenSinh)
+                                                        {
+                                                            <option value="@year.Year" selected="@(year.isSelected == true ? "selected" : null)">@year.Year</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loại biểu đồ</label>
+                                                    <select class="form-control" id="select2LoaiBieuDo" onchange="Select2LoaiBieuDoOnChange()">
+                                                        <option value="soluong" selected>Theo số lượng</option>
+                                                        <option value="phantram">Theo phần trăm</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Đăng ký/Nhập học</label>
+                                                    <select class="form-control" id="select2DKNH" onchange="Select2DKNHOnChange()" disabled>
+                                                        <option value="all" selected>Tất cả</option>
+                                                        <option value="DK">Đăng ký</option>
+                                                        <option value="NH">Nhập học</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Cơ sở</label>
+                                                    <select class="form-control" id="select2CoSoTK" onchange="Select2CoSoTKOnChange()">
+                                                        @foreach (var coSo in ViewBag.ListCoSo)
+                                                        {
+                                                            <option value="@coSo.MaCoSo" 
+                                                                    selected="@(coSo.isSelected == true ? "selected" : null)">
+                                                            @coSo.TenCoSo</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Khu vực</label>
+                                                    <select class="form-control" id="select2KhuVucTK" onchange="Select2KhuVucTKOnChange()">
+                                                        @foreach (var khuVuc in ViewBag.ListKhuVuc)
+                                                        {
+                                                            <option value="@khuVuc.MaKhuVuc" selected="@(khuVuc.isSelected == true ? "selected" : null)">@khuVuc.TenKhuVuc</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Ngành</label>
+                                                    <select class="form-control" id="select2Nganh" onchange="SelectNganhOnChange()" disabled style="width: 100%">
+                                                        @foreach (var nganh in ViewBag.ListNganh)
+                                                        {
+                                                            <option value="@nganh.MaNganh" selected="@(nganh.isSelected == true ? "selected" : null)">@nganh.TenNganh</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="row" style="margin-top: -10px">
+                                        <div class="filter-dashboard">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Hình thức tuyển sinh</label>
+                                                    <select class="form-control" id="select2HTTS" onchange="Select2HTTSOnChange()">
+                                                        @foreach (var htts in ViewBag.ListHinhThucXetTuyen)
+                                                        {
+                                                            <option value="@htts.MaHinhThucTuyenSinh" selected="@(htts.isSelected == true ? "selected" : null)">@htts.TenHinhThucTuyenSinh</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                    <div class="demo-section k-content wide chart-wrapper">
+                                        <div id="chart" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                    <div class="card card-category-chart" id="typeChart">
+                                        <div class="header">
+                                            <h5>Loại biểu đồ</h5>
+                                        </div>
+                                        <div class="content">
+                                            <div class="choose-chart">
+                                                <ul class="choose-chart-element">
+                                                    <li>
+                                                        <a onclick="LineChart()">
+                                                            <i class="fa fa-line-chart"></i> Biểu đồ đường
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a onclick="ColumnChart()">
+                                                            <i class="fa fa-bar-chart"></i> Biểu đồ cột
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a onclick="AreaChart()">
+                                                            <i class="fa fa-area-chart"></i> Biểu đồ miền
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h6 style="margin-top: -25px;margin-bottom: 20px">Bảng hiển thị chi tiết thông tin của biểu đồ</h6>
+                            <div id="grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">THỐNG KÊ THEO NGUỒN TIẾP CẬN</h4>
+                </div>
+                <div class="content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="title" style="font-weight: bold">Danh sách nguồn tiếp cận</h6>
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <div class="row">
+                                        <div class="filter-dashboard">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Năm</label><br />
+                                                    <select class="form-control" id="select2Year" onchange="Select2YearOnChange()" multiple>
+                                                        @foreach (var year in ViewBag.ListNamTuyenSinh)
+                                                        {
+                                                            <option value="@year.Year" selected="@year.isSelected">@year.Year</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Loại biểu đồ</label>
+                                                    <select class="form-control" id="select2LoaiBieuDoNTC" onchange="Select2LoaiBieuDoNTCOnChange()">
+                                                        <option value="soluong" selected>Theo số lượng</option>
+                                                        <option value="phantram">Theo phần trăm</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Khu vực</label>
+                                                    <select class="form-control" id="select2KhuVuc" onchange="Select2KhuVucOnChange()">
+                                                        @foreach (var kv in ViewBag.ListKhuVuc)
+                                                        {
+                                                            <option value="@kv.MaKhuVuc" selected="@kv.isSelected">@kv.TenKhuVuc</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-10 col-sm-10 col-xs-10">
+                                    <div class="demo-section k-content wide chart-wrapper">
+                                        <div id="chartNTC" style="width:100%"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 col-xs-2">
+                                    <div class="card card-category-chart" id="typeChartNTC">
+                                        <div class="header">
+                                            <h5>Loại biểu đồ</h5>
+                                        </div>
+                                        <div class="content">
+                                            <div class="choose-chart">
+                                                <ul class="choose-chart-element">
+                                                    <li>
+                                                        <a onclick="LineNTCChart()">
+                                                            <i class="fa fa-line-chart"></i> Biểu đồ đường
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a onclick="ColumnNTCChart()">
+                                                            <i class="fa fa-bar-chart"></i> Biểu đồ cột
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a onclick="AreaNTCChart()">
+                                                            <i class="fa fa-area-chart"></i> Biểu đồ miền
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <h6 style="margin-top: -25px;margin-bottom: 20px">Bảng hiển thị chi tiết thông tin của biểu đồ</h6>
+                            <div id="gridNTC"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/assets/js/script.js"></script>
